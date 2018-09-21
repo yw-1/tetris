@@ -1,5 +1,6 @@
 # Tetris
 A simple tetris clone in C and SDL2 renderer
+
 ![alt text](sc1.png)
 
 ## Controls:
