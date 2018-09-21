@@ -7,6 +7,7 @@ A simple tetris clone in C and SDL2 renderer
 * arrow keys: movement, up: rotate
 * shift + left/right/down: hard left/right/drop 
 * spacebar: hard drop
+* +/-: change speed
 * p: pause
 * Enter: restart
 * Esc: quit
