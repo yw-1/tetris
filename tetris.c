@@ -323,14 +323,14 @@ int main(int argc, char *argv[])
 					snprintf(title, 255, "lines=%d,speed=%d", line, speed);
 					SDL_SetWindowTitle(window, title);
 					break;
-				case SDLK_KP_PLUS:
+				case SDLK_KP_PLUS: case SDLK_PLUS: case SDLK_EQUALS:
 					if (speed < 100) {
 						speed++;
 						snprintf(title, 255, "lines=%d,speed=%d", line, speed);
 						SDL_SetWindowTitle(window, title);
 					}
 					break;
-				case SDLK_KP_MINUS:
+				case SDLK_KP_MINUS: case SDLK_MINUS:
 					if (speed > 1) {
 						speed--;
 						snprintf(title, 255, "lines=%d,speed=%d", line, speed);

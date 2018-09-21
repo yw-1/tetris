@@ -9,4 +9,3 @@ tetris: $(OBJ)
 	gcc -o $@ $^ $(CFLAGS) $(LIBS)
 clean:
 	rm -rf *.o
-.PHONY: clean
