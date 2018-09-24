@@ -69,7 +69,7 @@ int valid(int *board, int pn, int px, int py, int rot)
 		for (int x=0; x<4; x++) {
 			rotate(&xx, &yy, x, y, pn, rot);
 
-			if (piece[pn][y][x]) {
+			if (py + yy >= 0 && piece[pn][y][x]) {
 				if (px + xx >= sw || px + xx < 0) return 0;
 				if (py + yy >= sh) return 0;
 				if (py >= 0 && board[sw*(py + yy) + px + xx]) return 0;
@@ -88,7 +88,7 @@ int place(int *board, int pn, int px, int py, int rot)
 		for (int x=0; x<4; x++) {
 			rotate(&xx, &yy, x, y, pn, rot);
 
-			if (piece[pn][y][x]) board[sw*(py + yy) + px + xx] = pn + 1;
+			if (py + yy >= 0 && piece[pn][y][x]) board[sw*(py + yy) + px + xx] = pn + 1;
 		}
 	}
 
