@@ -94,19 +94,21 @@ int place(int *board, int pn, int px, int py, int rot)
 
 	//clear lines
 	for (int y=py-1; y<py+3; y++) {
-		clear = 1;
+		if (y >= 0 && y < sh) {
+			clear = 1;
 
-		for (int x=0; x<sw; x++) {
-			if (board[sw*y + x] == 0) {
-				clear = 0;
-				break;
+			for (int x=0; x<sw; x++) {
+				if (board[sw*y + x] == 0) {
+					clear = 0;
+					break;
+				}
 			}
-		}
 
-		if (clear) {
-			line++;
-			for (yy=y; yy>0; yy--)
-				for (int x=0; x<sw; x++) board[sw*yy + x] = board[sw*(yy-1) + x];
+			if (clear) {
+				line++;
+				for (yy=y; yy>0; yy--)
+					for (int x=0; x<sw; x++) board[sw*yy + x] = board[sw*(yy-1) + x];
+			}
 		}
 	}
 
