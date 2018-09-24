@@ -23,7 +23,7 @@ int piece_color[7][3] = {
 	{0, 128, 128},
 };
 
-int size = 30, sw = 10, sh = 20;
+int size = 35, sw = 10, sh = 20;
 
 void rotate(int *xx, int *yy, int x, int y, int pn, int rot)
 {
@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
 	int end = 0, redraw = 1;
 	int key, shift;
 
-	int speed = 10, line = 0;
+	int speed = 50, line = 0;
 	int pause = 0, put = 0;
 	int game = 0;
 	int startx = 3;
@@ -175,15 +175,7 @@ int main(int argc, char *argv[])
 		}
 
 		if (put) {
-			if (!valid(board, pn, px, py, rot)) {
-				for (int y=0; y<sh; y++)
-					for (int x=0; x<sw; x++)
-						board[sw*y + x] = 0;
-				line = 0;
-				snprintf(title, 255, "lines=%d,speed=%d", line, speed);
-				SDL_SetWindowTitle(window, title);
-				pause = 0;
-			} else {
+			if (valid(board, pn, px, py, rot)) {
 				n = place(board, pn, px, py, rot);
 				if (n) {
 					line += n;
@@ -205,6 +197,8 @@ int main(int argc, char *argv[])
 				printf("game %d: %d lines\n", ++game, line);
 				memset(board, 0, sw*sh*sizeof(int));
 				line = 0;
+				snprintf(title, 255, "lines=%d,speed=%d", line, speed);
+				SDL_SetWindowTitle(window, title);
 			}
 		}
 
