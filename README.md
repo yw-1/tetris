@@ -18,3 +18,7 @@ For custom size:
 for 30x30 board with 15x15 pixel squares, ie:
 
 ![alt text](sc2.png)
+
+## Pentris
+`make pentris` 
+for variant with pentominos
